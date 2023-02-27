@@ -14,7 +14,12 @@
 \section*{Lekcijas konspekts}
 Tika stāstīta par determinantiem. Kā tos aprēķināt. To īpašības.
 
+\clearpage
+
 \section*{1. Uzdevums}
+Parādot katru risinājuma soli, atrisiniet ar Gausa metodi šādu vienādojumu sistēmu:\newline
+$\{y+3z+8u=4, x+u=2, -2x+y-2z=-1, 2y+z+10u=7\}$. Rezultātu pārbaudiet ar WolframAlpha.
+
 \begin{equation*}
     \begin{cases}
         y + 3z + 8u = 4\\
@@ -55,7 +60,7 @@ Tika stāstīta par determinantiem. Kā tos aprēķināt. To īpašības.
     \xrightarrow{
         \substack{
             r_3 -= 3r_2\\
-            r_4 -= -2r_2
+            r_4 -= (-2r_2)
         }
     }
     \left(
@@ -66,7 +71,7 @@ Tika stāstīta par determinantiem. Kā tos aprēķināt. To īpašības.
             0 & 0 & -5 & -6 & -1
         \end{tabular}
     \right)
-    \xrightarrow{x_3 /= (-5)}
+    \xrightarrow{r_3 /= (-5)}
     \\
     \left(
         \begin{tabular}{ c c c c|c }
@@ -102,7 +107,14 @@ Tika stāstīta par determinantiem. Kā tos aprēķināt. To īpašības.
 
 \includegraphics[width=\textwidth]{1}
 
+\clearpage
+
 \section*{2. Uzdevums}
+
+Aprēķiniet determinantus, parādot visus aprēķina soļus:\newline
+$[\{8,5\},\{12, 9\}]$; $[\{-2,5\},\{-3,-4\}]$;\newline
+$[\{a,2a\}, \{-2a, -3a\}]$; $[\{a+b, b\}, \{-b, a-b\}]$.
+
 \begin{equation*}
 \det
 \begin{pmatrix}
@@ -159,7 +171,11 @@ Tika stāstīta par determinantiem. Kā tos aprēķināt. To īpašības.
     a^2
 \end{equation*}
 
+\clearpage
+
 \section*{3. Uzdevums}
+Atrisiniet vienādojumu sistēmu, $\{13x-16y=4, -6x+7y=2\}$, izmantojot Kramera formulas. Parādiet visus aprēķina soļus.
+
 \begin{equation*}
     \begin{cases}
         13x -16y = 4\\
@@ -194,7 +210,7 @@ Tika stāstīta par determinantiem. Kā tos aprēķināt. To īpašības.
 \end{equation*}
 
 \begin{equation*}
-    d_1
+    d_2
     = 
     \begin{vmatrix}
         13 & 4\\
