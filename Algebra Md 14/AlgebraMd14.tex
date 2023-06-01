@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+
+
+\title{14. Gredzeni un lauki (pēdējais mājas darbs)}
+\author{Gunārs Ābeltiņš}
+\date{2022-06-01}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Uzdevums}
+\subsubsection*{Izmantojot tikai 10 lauka aksiomas un jau iepriekš pierādītās \\ teorēmas, pierādiet T19, T20.}
+
+Teorēma:
+\begin{equation*}
+    \frac{a}{b}\frac{c}{d}=\frac{ab}{cd}; \frac{ac}{bc}=\frac{a}{b}
+\end{equation*}
+Pierādijums:
+\begin{equation*}
+    \frac{a}{b}\frac{c}{d}=abc^{-1}d^{-1}=(ac)(b^{-1}d^{-1})=(ac)(bd)^{-1}=\frac{ac}{bd}=\frac{ab}{cd}
+\end{equation*}
+\begin{equation*}
+    \frac{ac}{bc}=acc^{-1}b^{-1}=(ab^{-1})(cc^{-1})=ab^{-1}=\frac{a}{b}
+\end{equation*}
+Teorēma:
+\begin{center}
+    $\frac{a}{b}=\frac{c}{d}$ tad un tikai tad, ja b un d nav 0, un $ad=bc$.
+\end{center}
+Pierādijums:
+\begin{equation*}
+    \frac{a}{b}=\frac{c}{d} \Rightarrow ab^{-1}=cd^{-1} \Rightarrow ab^{-1}db=cd^{-1}db \Rightarrow ad=bc
+\end{equation*}
+
+\section*{2. Uzdevums}
+\subsubsection*{Izmantojot tikai 10 lauka aksiomas un jau iepriekš pierādītās \\ teorēmas, pierādiet T21.}
+
+Teorēma:
+\begin{equation*}
+    \frac{a}{c}+\frac{a}{c}=\frac{a+b}{c};\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}
+\end{equation*}
+Pierādijums:
+\begin{equation*}
+    \frac{a}{c}+\frac{a}{c}=ac^{-1}+ac^{-1}=(a+a)c^{-1}=\frac{a+b}{c}
+\end{equation*}
+\begin{gather*}
+    \frac{a}{b}+\frac{c}{d}=ab^{-1}+cd^{-1}=ab^{-1}(dd^{-1})+cd^{-1}(bb^{-1})=\\
+    =(ad)(bd)^{-1}+bc(bd)^{-1}=(ad+bc)(bd)^{-1}=\frac{ad+bc}{bd}
+\end{gather*}
+
+\section*{3. Uzdevums}
+\subsubsection*{a) Uzbūvējiet summu un reizinājumu tabulu gredzenam Z6.}
+
+Summu tabula:
+\begin{center}
+    \begin{tabular}{ c | c c c c c c }
+          & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \hline
+        0 & 0 & 1 & 2 & 3 & 4 & 5 \\
+        1 & 1 & 2 & 3 & 4 & 5 & 0 \\
+        2 & 2 & 3 & 4 & 5 & 0 & 1 \\
+        3 & 3 & 4 & 5 & 0 & 1 & 2 \\
+        4 & 4 & 5 & 0 & 1 & 2 & 3 \\
+        5 & 5 & 0 & 1 & 2 & 3 & 4 \\
+    \end{tabular}
+\end{center}
+Reizinājuma tabula;
+\begin{center}
+    \begin{tabular}{ c | c c c c c c }
+          & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \hline
+        0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 2 & 3 & 4 & 5 \\
+        2 & 0 & 2 & 4 & 0 & 2 & 4 \\
+        3 & 0 & 3 & 0 & 3 & 0 & 3 \\
+        4 & 0 & 4 & 2 & 0 & 4 & 2 \\
+        5 & 0 & 5 & 4 & 3 & 2 & 1 \\
+    \end{tabular}
+\end{center}
+
+\subsubsection*{b) Atrodiet Z6 visus nulles dalītājus un visus inversos elementus. Parādiet visus aprēķina soļus.}
+
+Vērtibas tika nolasītas no tabulas.\\
+Nulles dalītāji: (2, 3) un (3, 4)\\
+Inversie elementi: (1, 1) un (5, 5)
+\end{document}
