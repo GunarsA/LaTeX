@@ -58,7 +58,7 @@ Pierādijums:
 Summu tabula:
 \begin{center}
     \begin{tabular}{ c | c c c c c c }
-          & 0 & 1 & 2 & 3 & 4 & 5 \\
+        + & 0 & 1 & 2 & 3 & 4 & 5 \\
         \hline
         0 & 0 & 1 & 2 & 3 & 4 & 5 \\
         1 & 1 & 2 & 3 & 4 & 5 & 0 \\
@@ -71,7 +71,7 @@ Summu tabula:
 Reizinājuma tabula;
 \begin{center}
     \begin{tabular}{ c | c c c c c c }
-          & 0 & 1 & 2 & 3 & 4 & 5 \\
+        * & 0 & 1 & 2 & 3 & 4 & 5 \\
         \hline
         0 & 0 & 0 & 0 & 0 & 0 & 0 \\
         1 & 0 & 1 & 2 & 3 & 4 & 5 \\
@@ -84,7 +84,16 @@ Reizinājuma tabula;
 
 \subsubsection*{b) Atrodiet Z6 visus nulles dalītājus un visus inversos elementus. Parādiet visus aprēķina soļus.}
 
-Vērtibas tika nolasītas no tabulas.\\
-Nulles dalītāji: (2, 3) un (3, 4)\\
-Inversie elementi: (1, 1) un (5, 5)
+Nulles dalītāji (Vērtības 0 no reizinājuma tabulas):
+\begin{gather*}
+    2 * 3 \equiv 0 \pmod{6}\\
+    3 * 2 \equiv 0 \pmod{6}\\
+    3 * 4 \equiv 0 \pmod{6}\\
+    4 * 3 \equiv 0 \pmod{6}
+\end{gather*}
+Inversie elementi (Vērtības 1 no reizinājuma tabulas):
+\begin{gather*}
+    1 * 1 \equiv 1 \pmod{6}\\
+    5 * 5 \equiv 1 \pmod{6}
+\end{gather*}
 \end{document}
