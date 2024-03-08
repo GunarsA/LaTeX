@@ -1,0 +1,336 @@
+\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+
+
+\title{1. matematiskas loģikas majadarbs}
+\author{Gunārs Ābeltiņš}
+\date{2024-03-08}
+
+\begin{document}
+
+\maketitle
+
+\section{Formālās teorijas}
+
+\subsection*{a apakšuzdevums}
+
+\begin{enumerate}
+    \item Valoda: {b, c, d}
+    \item Aksiomas: b, c
+    \item Izveduma likumi: $x \vdash dxd$, $x \vdash xbcb$
+    \item Teorēmas
+          \[
+              b \vdash \underline{d}b\underline{d} \vdash dbd\underline{bcb} \vdash \underline{d}dbdbcb\underline{d} \vdash \underline{d}ddbdbcbd\underline{d}
+          \]
+          \[
+              c \vdash \underline{d}c\underline{d} \vdash dcd\underline{bcb} \vdash \underline{d}dcdcb\underline{d} \vdash \underline{d}ddcdbcbd\underline{d}
+          \]
+\end{enumerate}
+
+\subsection*{b apakšuzdevums}
+
+\subsubsection*{Nepierādami apgalvojumi}
+
+\begin{enumerate}
+    \item[$d$:] Vārds satur tikai vienu simbolu un tas nav aksionma
+    \item[$bcd$:] Vārdu nevar izvest izmantojot izveduma likumus
+\end{enumerate}
+
+\subsubsection*{Algoritms}
+
+\begin{enumerate}
+    \item Ja vārda ir tikai viens simbols:
+          \begin{enumerate}
+              \item Ja simbols ir aksioma, tad apgalvojums ir pierādāms
+              \item Ja nav aksioma, tad apgalvojums nav pierādāms
+          \end{enumerate}
+    \item Ja vārds beidzās ar "bcb", tad to daļu noņem un atgriežas pie pirmā soļa.
+    \item Ja vārds sākas un beidzās ar "d", tad šīs daļas noņem un atgriežas pie pirmā soļa.
+    \item Ja ir nokļuvis līdz šim solim, tad vārds nav pierādāms.
+\end{enumerate}
+
+\pagebreak
+
+\section{Predikātu valodas}
+
+Predikātu valodā C ir šādi 5 predikāti: S(x) un V(x) (x ir sieviete/vīrietis), T(x, y), M(x, y)
+(x ir y-a (bioloģiskais) tēvs/māte), P(x,y) (x ir precējies ar y), kā arī predikāts x=y.
+
+\subsection*{1. apakšuzdevums}
+
+\begin{enumerate}
+    \item x ir vectēvs:
+          \[
+              \exists y \exists z (\neg (x = y) \land T(x, y) \land (T(y, z) \lor M(y,z)))
+          \]
+
+    \item x un y ir brāļi:
+          \[
+              V(x) \land V(y) \land \exists z (T(z, x) \land T(z, y) \lor M(z, x) \land M(z, y))
+          \]
+
+    \item x-am visi bērni ir dēli:
+          \[
+              \forall y ((T(x,y) \lor M(x, y)) \rightarrow V(y))
+          \]
+
+    \item x ir divu meitu tēvs:
+          \[
+              V(x) \land \exists y \exists z (\neg (y = z) \land S(y) \land S(z) \land T(x, y) \land T(x, z))
+          \]
+\end{enumerate}
+
+\subsection*{2. apakšuzdevums}
+
+\begin{enumerate}
+    \item x-a māte un tēvs ir precējušies:
+          \[
+              \forall y \forall z (\neg(y = z) \land (M(x, y) \land T(x, z)) \rightarrow P(y, z))
+          \]
+
+    \item Precēties var tikai dažādi dzimumi:
+          \[
+              \forall x \forall y ((P(x, y) \land V(x)) \rightarrow S(y))
+          \]
+
+    \item x ir y-a māsīca:
+          \begin{align*}
+               & S(x) \land \exists z \exists v \exists w                    \\
+               & \neg (z = v \lor z = w \lor v = w)                          \\
+               & \land ((M(z, v) \lor T(z, v)) \land (M(z, w) \lor T(z, w))  \\
+               & \land (M(v, x) \lor T(v, x)) \land  (M(w, y) \lor T(w, y))) \\
+          \end{align*}
+\end{enumerate}
+
+\pagebreak
+
+\section*{3. Predikātu valodas}
+
+\subsection*{1. apakšuzdevums}
+
+Pierakstiet pirmās pakāpes aritmētikas valodā šādus apgalvojumus:
+
+\begin{enumerate}
+    \item[a)] x ir pirmskaitlis:
+        \[
+            P(x) = \neg (\exists y \exists z (x = y \cdot z \land \neg (y = x \lor z = x)))
+        \]
+
+    \item[b)] Katrs skaitlis, kas lielāks par 1, dalās ar kādu pirmskaitli:
+        \[
+            \forall x ((x > 1) \rightarrow \exists y \exists z (P(x) \land x = y \cdot z))
+        \]
+
+    \item[c)] x un y dalās ar vieniem un tiem pašiem pirmskaitļiem:
+        \begin{align*}
+             & \forall z (P(x) \rightarrow (\exists u (x = z \cdot u) \rightarrow                                  \\
+             & \exists v (y = z \cdot v) \land (\exists v (y = z \cdot v) \rightarrow \exists u (x = z \cdot u))))
+        \end{align*}
+\end{enumerate}
+
+\subsection*{2. apakšuzdevums}
+
+Predikātu valodā S ir šādi 5 predikāti: Pasn(x) (x ir pasniedzējs), Stud(x) (x ir students),
+Kurss(x) (x ir studiju kurss), pasniedz(x, y) (x pasniedz y), studē(x, y) (x studē y), ka arī
+predikāts x=y.
+
+\begin{enumerate}
+    \item Kursi nav ne studenti, ne pasniedzēji:
+          \[
+              \forall x (Kurss(x) \rightarrow \neg (Stud(x) \lor Pasn(x)))
+          \]
+
+    \item Kursu $x$ pasniedz viens un tikai viens pasniedzējs:
+          \[
+              \forall y \forall z (Pasn(y) \land Pasn(z) \rightarrow (pasniedz(y, x) \land pasniedz(z, x) \rightarrow y = z))
+          \]
+
+    \item Pasniedzējs $x$ māca studentu $y$:
+          \[
+              Pasn(x) \land Stud(y) \land \exists z (pasniedz(x, z) \land stude(y, z))
+          \]
+
+    \item $x$ un $y$ ir studenti, kuri studē vismaz vienu kopīgu kursu:
+          \[
+              Stud(x) \land Stud(y) \land \exists z (stude(x, z) \land stude(y, z))
+          \]
+\end{enumerate}
+
+\pagebreak
+
+\section*{4. Pašam sava predikātu valoda.}
+
+\subsection*{1. apakšuzdevums}
+
+\begin{enumerate}
+    \item Vērtību apgabals: aktieris, režisors, filma, skatītājs
+    \item Objektu konstantes: nav
+    \item Funkciju konstantes: nav
+    \item Predikātu konstantes:
+          \begin{itemize}
+              \item $ aktieris(x) $ : $ x $ ir aktieris
+              \item $ rezisors(x) $ : $ x $ ir režisors
+              \item $ filma(x) $ : $ x $ ir filma
+              \item $ skatitajs(x) $ : $ x $ ir skatītājs
+              \item $ L(x,y) $: $ x $ ir lomā $ y $
+              \item $ R(x,y) $: $ x $ režisē $ y $
+              \item $ S(x,y) $: $ x $ ir noskatijies $ y $
+          \end{itemize}
+    \item Termi: objektu mainīgie
+    \item Atomāras formulas: termi un predikātu konstantes
+\end{enumerate}
+
+\subsection*{2. apakšuzdevums}
+
+\begin{enumerate}
+    \item Katram aktierim ir vismaz viena loma:
+          \[
+              \forall x \exists y (aktieris(x) \rightarrow L(x, y))
+          \]
+
+    \item Skatītajs $x$ ir redzējis filmu ar aktieri $y$:
+          \[
+              skatitajs(x) \land aktieris(y) \land \exists z(filma(z) \land L(y, z) \land S(x, z))
+          \]
+
+    \item Skatītajs $x$ nav redzējis nevienu filmu ar režisoru $y$:
+          \[
+            skatitajs(x) \land rezisors(y) \land \forall z (filma(z) \land R(y, z) \rightarrow \neg S(x, z))
+          \]
+\end{enumerate}
+
+
+\pagebreak
+\section*{5. Aksiomas.}
+
+\subsection*{1.4.2 b}
+
+\[
+    \begin{array}{l}
+        [L_3 - L_5, \text{MP}]: A \land B \vdash B \land A \quad (8 \text{ formulas}) \\
+        L_3: B \land C \rightarrow B                                                  \\
+        L_4: B \land C \rightarrow C                                                  \\
+        L_5: B \rightarrow (C \rightarrow B \land C)
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $A \land B$ \hfill (Dota hipotēze)
+    \item $A \land B \rightarrow A$ \hfill (L$_3$)
+    \item $A$ \hfill (MP 1, 2)
+    \item $A \land B \rightarrow B$ \hfill (L$_4$)
+    \item $B$ \hfill (MP 1, 4)
+    \item $B \rightarrow (A \rightarrow B \land A)$ \hfill (L$_5$)
+    \item $A \rightarrow B \land A$ \hfill (MP 5, 6)
+    \item $B \land A$ \hfill (MP 3, 7)
+\end{enumerate}
+
+\subsection*{1.4.3 b}
+
+\[
+    \begin{array}{l}
+        [L_3, L_4, L_9, \text{MP}]: \neg( A \land \neg A) \\
+        L_3: B \land C \rightarrow B                      \\
+        L_3: B \land C \rightarrow C                      \\
+        L_9: (B \rightarrow C) \rightarrow ((B \rightarrow \neg C) \rightarrow \neg B)
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $A \land \neg A \rightarrow A$ \hfill (L$_3$)
+    \item $A \land \neg A \rightarrow \neg A$ \hfill (L$_4$)
+    \item $((A \land \neg A) \rightarrow A) \rightarrow (((A \land \neg A) \rightarrow \neg A) \rightarrow \neg(A \land \neg A))$ \hfill (L$_9$)
+    \item $((A \land \neg A) \rightarrow \neg A) \rightarrow \neg(A \land \neg A)$ \hfill (MP 1, 3)
+    \item $\neg(A \land \neg A)$ \hfill (MP 2, 4)
+\end{enumerate}
+
+\pagebreak
+\section*{6. Formulu izvešana bez saīsinājumiem.}
+
+\subsection*{1.4.2 c}
+
+\[
+    \begin{array}{l}
+        [L_6 - L_8, \text{MP}]: A \lor B \rightarrow B \lor A \quad (5 \text{ formulas}) \\
+        L_6: B \rightarrow B \lor C                                                      \\
+        L_7: C \rightarrow B \lor C                                                      \\
+        L_8: (B \rightarrow D) \rightarrow ((C \rightarrow D) \rightarrow (B \lor C \rightarrow D))
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $A \rightarrow B \lor A$ \hfill (L$_7$)
+    \item $(A \rightarrow B \lor A) \rightarrow ((B \rightarrow B \lor A) \rightarrow (A \lor B \rightarrow B \lor A))$ \hfill (L$_8$)
+    \item $(B \rightarrow B \lor A) \rightarrow (A \lor B \rightarrow B \lor A)$ \hfill (MP 1, 2)
+    \item $B \rightarrow B \lor A$ \hfill (L$_6$)
+    \item $A \lor B \rightarrow B \lor A$ \hfill (MP 3, 4)
+\end{enumerate}
+
+\subsection*{1.4.2 d}
+
+\[
+    \begin{array}{l}
+        [L_1, L_9, \text{MP}]: B \land \neg B \vdash \neg C \quad (9 \text{ formulas}) \\
+        L_1: B \rightarrow (C \rightarrow B)                                           \\
+        L_9: (B \rightarrow C) \rightarrow ((B \rightarrow \neg C) \rightarrow \neg B)
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $B$ \hfill (Dota hipotēze)
+    \item $\neg B$ \hfill (Dota hipotēze)
+    \item $B \rightarrow (C \rightarrow B)$ \hfill (L$_1$)
+    \item $\neg B \rightarrow (C \rightarrow \neg B)$ \hfill (L$_1$)
+    \item $(C \rightarrow B)$ \hfill (MP 1, 3)
+    \item $(C \rightarrow \neg B)$ \hfill (MP 2, 4)
+    \item $(C \rightarrow B) \rightarrow ((C \rightarrow \neg B) \rightarrow \neg C)$ \hfill (L$_9$)
+    \item $(C \rightarrow \neg B) \rightarrow \neg C$ \hfill (MP 5, 7)
+    \item $\neg C$ \hfill (MP 6, 8)
+\end{enumerate}
+
+\pagebreak
+
+\subsection{1.4.2 f}
+
+\[
+    \begin{array}{l}
+        [L_1, L_8, L_{10}, \text{MP}]: \neg A \lor B \rightarrow (A \rightarrow B) \quad (5 \text{ formulas}) \\
+        L_1: B \rightarrow (C \rightarrow B)                                                                  \\
+        L_8: (B \rightarrow D) \rightarrow ((C \rightarrow D) \rightarrow (B \lor C \rightarrow D))           \\
+        L_{10}: \neg B \rightarrow (B \rightarrow C)
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $\neg A \rightarrow (A \rightarrow B)$ \hfill (L$_{10}$)
+    \item $B \rightarrow (A \rightarrow B)$ \hfill (L$_1$)
+    \item $(\neg A \rightarrow (A \rightarrow B)) \rightarrow ((B \rightarrow (A \rightarrow B)) \rightarrow (\neg A \lor B \rightarrow (A \rightarrow B)))$ \hfill (L$_8$)
+    \item $(B \rightarrow (A \rightarrow B)) \rightarrow (\neg A \lor B \rightarrow (A \rightarrow B))$ \hfill (MP 1, 3)
+    \item $\neg A \lor B \rightarrow (A \rightarrow B)$ \hfill (MP 2, 4)
+\end{enumerate}
+
+\subsection{1.4.2 g}
+
+\[
+    \begin{array}{l}
+        [L_8, L_{11}, \text{MP}]: A \rightarrow B, \neg A \rightarrow B \vdash B \quad (7 \text{ formulas}) \\
+        L_8: (B \rightarrow D) \rightarrow ((C \rightarrow D) \rightarrow (B \lor C \rightarrow D))         \\
+        L_{11}: B \lor \neg B
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $A \rightarrow B$ \hfill (Dotā hipotēze)
+    \item $\neg A \rightarrow B$ \hfill (Dotā hipotēze)
+    \item $A \lor \neg A$ \hfill (L$_{11}$)
+    \item $(A \rightarrow B) \rightarrow ((\neg A \rightarrow B) \rightarrow (A \lor \neg A \rightarrow B))$ \hfill (L$_8$)
+    \item $(\neg A \rightarrow B) \rightarrow (A \lor \neg A \rightarrow B)$ \hfill (MP 1, 4)
+    \item $A \lor \neg A \rightarrow B$ \hfill (MP 2, 5)
+    \item $B$ \hfill (MP 3, 6)
+\end{enumerate}
+
+
+\end{document}
