@@ -13,5 +13,92 @@
 
 \maketitle
 
+\section*{7. Dedukcijas teorēma. Formulu izvešana izteikumu loģikā}
+
+\subsection*{Uzdevums 2.2.4 (a)}
+
+\subsection*{1.4.2 d}
+
+\[
+    \begin{array}{l}
+        [L_1 - L_5, \text{MP}]: (A \rightarrow (B \rightarrow C)) \leftrightarrow (A \land B \rightarrow C)  \\
+        L_1: B \rightarrow (C \rightarrow B)                                                                 \\
+        L_2: (B \rightarrow (C \rightarrow B)) \rightarrow ((B \rightarrow D) \rightarrow (B \rightarrow B)) \\
+        L_3: B \land C \rightarrow B                                                                         \\
+        L_4: B \land C \rightarrow C                                                                         \\
+        L_5: B \rightarrow (C \rightarrow B \land C)                                                         \\
+    \end{array}
+\]
+
+\[
+    [L_1 - L_5, \text{MP}]: (A \rightarrow (B \rightarrow C)) \rightarrow (A \land B \rightarrow C)
+\]
+
+\begin{enumerate}
+    \item $ A \rightarrow (B \rightarrow C) $ \hfill (Pieņemta hipotēze)
+    \item $ A \land B $ \hfill (Pieņemta hipotēze)
+    \item $ A \land B \rightarrow A $ \hfill (L$_3$)
+    \item $ A \land B \rightarrow B $ \hfill (L$_4$)
+    \item $ A $ \hfill (MP 2, 3)
+    \item $ B $ \hfill (MP 2, 4)
+    \item $ B \rightarrow C $ \hfill (MP 1, 5)
+    \item $ C $ \hfill (MP 6, 7)
+    \item $ [L_1 - L_5, \text{MP}]: A \rightarrow (B \rightarrow C), A \land B \vdash C $ \hfill (Pierādīts)
+    \item $ [L_1 - L_5, \text{MP}]: A \rightarrow (B \rightarrow C) \vdash A \land B \rightarrow C $ \hfill (DT$_1$)
+    \item $ [L_1 - L_5, \text{MP}]: (A \rightarrow (B \rightarrow C)) \rightarrow (A \land B \rightarrow C) $ \hfill (DT$_1$)
+\end{enumerate}
+
+\[
+    [L_1 - L_5, \text{MP}]: (A \land B \rightarrow C) \rightarrow (A \rightarrow (B \rightarrow C))
+\]
+
+\begin{enumerate}
+    \item $ A \land B \rightarrow C $ \hfill (Pieņemta hipotēze)
+    \item $ A $ \hfill (Pieņemta hipotēze)
+    \item $ B $ \hfill (Pieņemta hipotēze)
+    \item $ A \rightarrow ( B \rightarrow A \land B) $ \hfill (L$_5$)
+    \item $ B \rightarrow A \land B $ \hfill (MP 2, 4)
+    \item $ A \land B $ \hfill (MP 3, 5)
+    \item $ C $ \hfill (MP 1, 6)
+    \item $ [L_1 - L_5, \text{MP}]: A \land B \rightarrow C, A, B \vdash C $ \hfill (Pierādīts)
+    \item $ [L_1 - L_5, \text{MP}]: A \land B \rightarrow C, A \vdash B \rightarrow C $ \hfill (DT$_1$)
+    \item $ [L_1 - L_5, \text{MP}]: A \land B \rightarrow C \vdash A \rightarrow (B \rightarrow C) $ \hfill (DT$_1$)
+    \item $ [L_1 - L_5, \text{MP}]: (A \land B \rightarrow C) \rightarrow (A \rightarrow (B \rightarrow C)) $ \hfill (DT$_1$)
+\end{enumerate}
+
+\pagebreak
+
+\subsection*{Uzdevums 2.2.4 (b)}
+
+\[
+    \begin{array}{l}
+        [L_1 - L_5, \text{MP}]: (A \rightarrow B) \rightarrow (A \land C \rightarrow B \land C)              \\
+        L_1: B \rightarrow (C \rightarrow B)                                                                 \\
+        L_2: (B \rightarrow (C \rightarrow B)) \rightarrow ((B \rightarrow D) \rightarrow (B \rightarrow B)) \\
+        L_3: B \land C \rightarrow B                                                                         \\
+        L_4: B \land C \rightarrow C                                                                         \\
+        L_5: B \rightarrow (C \rightarrow B \land C)                                                         \\
+    \end{array}
+\]
+
+\begin{enumerate}
+    \item $ A \rightarrow B $ \hfill (Pieņemta hipotēze)
+    \item $ A \land C $ \hfill (Pieņemta hipotēze)
+    \item $ A \land C \rightarrow A $ \hfill (L$_3$)
+    \item $ A \land C \rightarrow C $ \hfill (L$_4$)
+    \item $ A $ \hfill (MP 2, 3)
+    \item $ B $ \hfill (MP 1, 5)
+    \item $ C $ \hfill (MP 1, 4)
+    \item $ B \rightarrow (C \rightarrow B \land C) $ \hfill (L$_5$)
+    \item $ C \rightarrow B \land C $ \hfill (MP 6, 8)
+    \item $ B \land C $ \hfill (MP 7, 9)
+    \item $ [L_1 - L_5, \text{MP}]: A \rightarrow B, A \land C \vdash B \land C $ \hfill (Pierādīts)
+    \item $ [L_1 - L_5, \text{MP}]: A \rightarrow B, A \land C \vdash B \land C \rightarrow B \land C $ \hfill (DT$_1$)
+    \item $ [L_1 - L_5, \text{MP}]: A \rightarrow B \vdash A \land C \rightarrow B \land C $ \hfill (DT$_1$)
+    \item $ [L_1 - L_5, \text{MP}]: (A \rightarrow B) \rightarrow (A \land C \rightarrow B \land C) $ \hfill (DT$_1$)
+\end{enumerate}
+
+
+
 
 \end{document}
