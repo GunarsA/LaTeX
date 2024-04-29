@@ -1,0 +1,430 @@
+8.md
+
+a.
+
+[L1, L2, L5, L6-L8, MP]: A∨(B∨C)↔(A∨B)∨C
+
+A∨(B∨C)→(A∨B)∨C
+1) A∨( B∨C)                     - pieņemam
+Ar T2.3.1 sadalām Av(BvC) zaros
+A                    BvC
+AvB                  Sadalām BvC zaros
+(AvB)vC              B             C
+                     AvB           (AvB)vC
+                    (AvB)vC
+2) (A∨B)∨C                      - Visos zaros esam ieguvuši to pāsu izteiksmi T2.3.1
+3) A∨(B∨C)→(A∨B)∨C              - DT1
+
+(A∨B)∨C->A∨(B∨C)
+1) (A∨B)∨C                   - pieņemam
+Ar T2.3.1 sadalām (AvB)vC zaros
+A∨B                     C
+Sadalām AvB zaros       BvC
+A           B           Av(BvC)
+Av(BvC)     BvC           
+            A(BvC)
+2) A∨(B∨C)                  - Visos zaros esam ieguvuši to pāsu izteiksmi T2.3.1
+3) (A∨B)∨C->A∨(B∨C)        - DT1
+
+b.
+
+[L1, L2, L6-L8, MP]: ( A → B)→ (A∨C → B∨C)
+1) A→B                     - pieņemam
+2) AvB                     - pieņemam
+Ar T2.3.1 sadalām AvC zaros
+3)A                        3')C
+4)B                        4')BvC
+5)BvC
+Visos zaros esam ieguvuši to pašu izteiksmi varam apvienot ar T2.3.1
+6) A∨C→B∨C                - DT1
+7) (A→B)→(A∨C→B∨C)        - DT1
+
+-------------------------------------------------------------------------------
+9.md
+
+a.
+
+[L1-L9, MP]: ¬( A∨ B)↔¬ A∧¬ B
+¬( A∨ B)→¬ A∧¬ B
+1) ¬( A∨ B)                  - pieņemam priekš DT1
+Sadalam gadījumos A un B
+2) A - pieņemam priekš T2.4.1   2') B - pieņemam priekš T2.4.1
+3) A∨B - T2.3.1 no 2)           3') A∨B - T2.3.1 no 2')
+4) Iegūta pretruna, tātad ¬A    4') Iegūta pretruna, tātad ¬B
+5) ¬( A∨ B)→¬ A∧¬ B           - Apvienojam abas puses un tad DT1
+
+¬A∧¬B->¬(A∨B)
+1) ¬A∧¬B                    - pieņemam priekš DT1
+2) A∨B                      - pieņemam priekš T2.4.1
+Sazarojam A∨B
+3) A                                                3')B
+4) ¬A - T2.2.1 no 1)                                4')¬B - T2.2.1 no 1)
+5) Iegūta pretruna, tātad ¬(A∨B) no 2) un T2.4.1    5') Iegūta pretruna, tātad ¬(A∨B) no 2) un T2.4.1
+Abos zaros iegūts ¬(A∨B)
+6) ¬A∧¬B->¬(A∨B)            - DT1
+
+b. 
+[L1-L10, MP]: A├ B ↔ B∨¬A
+A├ B → B∨¬A
+1) A                      - dotā hipotēze
+2) B                      - pieņemam priekš DT1
+3) B∨¬A                   - T2.3.1 no (2)
+4) B → B∨¬A               - DT1
+A├ B∨¬A → B
+1) A                      - dotā hipotēze
+2) B∨¬A                  - pieņemam priekš DT1
+Sadalam zaros ar T2.4.1
+3) B                      3') ¬A
+                          4') ¬A→(A→B) - L10
+                          5') A→B - MP no 3') un 4')
+                          6') B - MP no 1) un 5')
+7) B                      - T2.4.1 no 3) un 6'), jo abos zaros iegūts B
+8) B∨¬A → B               - DT1
+
+[L1-L10, MP]:B∨( A∧¬ A) ↔ B
+B∨( A∧¬ A) → B
+1) B∨( A∧¬ A)              - pieņemam priekš DT1
+Sadalam zaros ar T2.3.1
+2) B                       2') A∧¬A
+                           3') A - T2.2.1 no 2')
+                           4') ¬A - T2.2.1 no 2')
+                           5') ¬A→(A→B) - L10
+                            6') A→B - MP no 3') un 5')
+                            7') B - MP no 1) un 6')
+8) B                       - T2.3.1 no 2) un 7'), jo abos zaros iegūts B
+9) B∨( A∧¬ A) → B          - DT1
+B → B∨( A∧¬ A)
+1) B                       - pieņemam priekš DT1
+2) B∨( A∧¬ A)              - T2.3.1 no (1)
+3) B → B∨( A∧¬ A)          - DT1
+
+[L1-L10, MP]:(( A∧¬ A)∧B)∨C ↔C
+(( A∧¬ A)∧B)∨C → C
+1) (( A∧¬ A)∧B)∨C          - pieņemam priekš DT1
+Sadalam zaros ar T2.3.1
+2) C                        2') ( A∧¬ A)∧B
+                            3') A∧¬A - T2.2.1 no 2')
+                            4') A - T2.2.1 no 3')
+                            5') ¬A - T2.2.1 no 3')
+                            6') ¬A→(A→C) - L10
+                            7') A→C - MP no 5') un 6')
+                            8') C - MP no 4') un 7')
+9) C                        - T2.3.1 no (2) un (8'), jo abos zaros iegūts C
+10) (( A∧¬ A)∧B)∨C → C     - DT1
+C → (( A∧¬ A)∧B)∨C
+1) C                        - pieņemam priekš DT1
+2) (( A∧¬ A)∧B)∨C          - T2.3.1 no (1)
+3) C → (( A∧¬ A)∧B)∨C      - DT1
+
+-------------------------------------------------------------------------------
+10.md
+
+a)
+
+[L1-L10, MP]:A∨¬ A →(¬ ¬ A → A)
+(1) A∨¬ A                   - pieņemam priekš DT1
+(2) ¬ ¬ A                   - pieņemam priekš DT1
+Sadalam zaros ar T2.3.1
+(3) A                       (3') ¬A
+                            (4') ¬A→(¬ ¬ A → A) - L10
+                            (5') ¬ ¬ A → A - MP no (3') un (4')
+                            (6') A - MP no (2) un (5')
+(7) A                      - T2.3.1 no (3) un (6'), jo abos zaros iegūts A
+(8) A∨¬ A →(¬ ¬ A → A)     - DT1 2x
+
+[L1-L10, MP]:¬¬(¬¬A→A)
+(1) ¬(¬¬A→A)               - pieņemam priekš T2.4.1
+(2) A→(¬¬A→A)              - L1
+(3) ¬(¬¬A→A)→¬A            - Kontrapozīcija no (2)
+(4) ¬A                     - MP no (1) un (3)
+(5) ¬A→(¬¬A→A)             - L10
+(6) ¬(¬¬A→A)→¬¬A           - Kontrapozīcija no (5)
+(7) ¬¬A                    - MP no (1) un (6)
+Iegūta pretruna (4) un (7), tātad balstoties uz T2.4.1 un (1) ¬¬(¬¬A→A)
+
+b)
+
+[L1-L8, MP]: A∨C ├ ( A→ B)→ B∨C
+(1) A∨C                    - dotā hipotēze
+(2) A→B                    - pieņemam priekš DT1
+Sazarosim ar T2.3.1
+(3) A                       (3') C
+(4) B - MP no (2) un (3)    (4') B∨C - T2.3.1 no (3')
+(5) B∨C - T2.3.1 no (4)
+(6) BvC                     - T2.3.1 no (5) un (4'), jo abos zaros iegūts BvC
+(7) ( A→ B)→ B∨C           - DT1
+
+-------------------------------------------------------------------------------
+11.md
+
+A    B    A → B    A ∧ B    A ∨ B    ¬B
+0    0      2        0        0       2
+0    1      2        0        1       2
+0    2      2        0        2       1
+1    0      0        0        1       2
+1    1      2        1        1       2
+1    2      2        1        2       1
+2    0      0        0        2       2
+2    1      1        1        2       2
+2    2      2        2        2       1
+
+¬¬B    ¬¬B → B
+1         0
+1         2
+2         2
+1         0
+1         2
+2         2
+1         0
+1         2
+2         2
+nedabiski, ka nav vienmēr pilnībā patiess
+
+¬A  ¬A ∨ B   (A → B) → (¬A ∨ B)
+2      2             2
+2      2             2
+2      2             2
+2      2             2
+2      2             2
+2      2             2
+1      1             2
+1      1             2
+1      2             2
+izskatās dabiski
+
+-------------------------------------------------------------------------------
+12.md
+
+1)
+a)
+[L1, L2, L5, L12, L14, MP, Gen]: ∀x∀yB(x,y) ↔ ∀y∀xB(x,y)
+∀x∀yB(x,y) → ∀y∀xB(x,y)
+(1) ∀x∀yB(x,y) - pieņemam priekš DT2
+(2) ∀yB(x,y) - T12 no (1)
+(3) B(x,y) - T12 no (2)
+(4) ∀xB(x,y) - Gen no (3)
+(5) ∀y∀xB(x,y) - Gen no (4)
+DT2: ∀x∀yB(x,y) → ∀y∀xB(x,y) 
+Gen tiek izmantots pareizi, jo x un y ir saistīti ar kvantoru
+
+∀y∀xB(x,y) → ∀x∀yB(x,y)
+(1) ∀y∀xB(x,y) - pieņemam priekš DT2
+(2) ∀xB(x,y) - T12 no (1)
+(3) B(x,y) - T12 no (2)
+(4) ∀yB(x,y) - Gen no (3)
+(5) ∀x∀yB(x,y) - Gen no (4)
+DT2: ∀y∀xB(x,y) → ∀x∀yB(x,y)
+Gen tiek izmantots pareizi, jo x un y ir saistīti ar kvantoru
+
+b)
+[L1, L2, L5, L13, L15, MP, Gen]: ∃x∃yB(x,y) ↔ ∃y∃xB(x,y)
+∃x∃yB(x,y) → ∃y∃xB(x,y)
+(1) B(x,y) → ∃xB(x,y) - L13
+(2) ∃xB(x,y) → ∃y∃xB(x,y) - L13
+(3) B(x,y) → ∃y∃xB(x,y) - Implikācijas transitivitāte
+(4) ∃yB(x,y) → ∃y∃xB(x,y) - T15
+(5) ∃x∃yB(x,y) → ∃y∃xB(x,y) - T15
+
+∃y∃xB(x,y) → ∃x∃yB(x,y)
+(1) B(x,y) → ∃yB(x,y) - L13
+(2) ∃yB(x,y) → ∃x∃yB(x,y) - L13
+(3) B(x,y) → ∃x∃yB(x,y) - Implikācijas transitivitāte
+(4) ∃xB(x,y) → ∃x∃yB(x,y) - T15
+(5) ∃y∃xB(x,y) → ∃x∃yB(x,y) - T15
+
+2)
+[L1-L11, MP]: ¬((A→B)→(CvD)) ↔ (¬AvB)∧¬C∧¬D
+¬((A→B)→(CvD))
+(1) A→B ↔ ¬AvB - T2.6.4
+(2) ¬((¬AvB)→(CvD)) ↔ ¬(¬(¬AvB)v(CvD)) - T2.4.9
+(3) ¬(¬(¬AvB)v(CvD)) ↔ ¬¬(¬(AvB)v¬(CvD)) - T2.4.9
+(4) ¬¬(¬(AvB)v¬(CvD)) ↔ ¬¬(¬(AvB)v¬Cv¬D) - T2.4.9
+(5) ¬¬(¬(AvB)v¬Cv¬D) ↔ ¬(AvB)v¬Cv¬D - T2.6.1
+Esam ar ekvivalentiem parveidojumiem izveduši vienādību
+
+-------------------------------------------------------------------------------
+13.md
+
+1) Uzdevums 4.1.1. bet lai patiesas ir šādas formulas (to formulu vietā, kas ir grāmatas
+uzdevumā): “some people are both male and female”, “there are sex-less people”, “a
+person may marry herself”, “a person may be mother of herself”, "visi tēvi ir
+bezdzimuma personas", "eksistē persona, kam ir divas mātes".
+
+x    Male(x)    Female(y)
+br     !1          !1      ir cilvēki ar abiem dzimumiem
+jo     !0          !0      ir bezdzimuma cilvēki; visi tēvi ir bezdzimuma personas (1)
+pa      1           0
+pe      0           1
+
+x    y    Father(x,y)    Mother(x,y)    Married(x,y)    x=y
+br   br        0              0              !1          1    person vār precēt sevi
+br   jo        0             !1               0          0    eksitē persona, kurai ir divas mātes (1)
+br   pa        0              0               0          0
+br   pe        0              0               0          0
+jo   br        0              0               0          0
+jo   jo        0              0               0          1
+jo   pa       !1              0               0          0    visi tēvi ir bezdzimuma personas (2)
+jo   pe        0              0               0          0
+pa   br        0              0               0          0
+pa   jo        0             !1               0          0    eksitē persona, kurai ir divas mātes (2)
+pa   pa        0              0               0          1
+pa   pe        0              0               0          0
+pe   br        0              0               0          0
+pe   jo        0              0               0          0
+pe   pa        0              0               0          0
+pe   pe        0              0               0          1
+
+2) r, s ir predikātu konstantes. Vai šī formula ir LVD: ∀x(r(x)→s(x))→(∃x r(x)→∃xs(x))? Atbildi pamatojiet.
+
+Formula nav LVD, jo vienīgais veids kā tā varētu but nepatiesa ir ja ∀x(r(x)→s(x)) un ∃x(r(x)) ir patiess, bet ∃x(s(x)) ir nepatiess.
+Bet šāda situācija nav iespējama, jo ja ir kāds x, kurš ir r(x), tad ir arī s(x), lai izpildītos ∀x(r(x)→s(x)).
+Tāpēc arī ∃x(s(x)) būs patiess.
+
+3) q, r, s ir predikātu konstantes. Pierādiet, ka šīs formulas IR izpildāmas, bet NAV LVD:
+
+a) ∀x∃y q(x, y) → ∃y∀x q(x, y);
+Formula izpildās:
+D = {a}
+q(x, y) = {(a, a)}
+Formula neizpildās:
+D = {a, b}
+q(x, y) = {(a, a), (b, b)}
+
+b) (∃x r(x)→∃x s(x))→ ∀x(r(x)→s(x))
+Formula izpildās:
+D = {a}
+r(x) = {a}
+s(x) = {a}
+Formula neizpildās:
+D = {a, b}
+r(x) = {a}
+s(x) = {b}
+
+-------------------------------------------------------------------------------
+14.md
+
+1) Izmantojot klasiskās izteikumu loģikas pilnības teorēmu, noskaidrojiet, kuras no šīm
+formulām ir izvedamas no [L1-L11, MP]:
+
+a) (A→B)→((¬A→B)→B);
+A   B   A → B   ¬A    ¬A→B    (¬A→B)→B   (A→B)→((¬A→B)→B)
+0   0     1      1      0           1         1 
+0   1     1      1      1           1         1
+1   0     0      0      1           0         1
+1   1     1      0      1           1         1
+Var izvēst, jo vienmēr patiess
+
+b) AvBvC→B∧C
+A   B   C   AvBvC   B∧C   AvBvC→B∧C
+0   0   0     0      0         1
+0   0   1     1      0         0
+0   1   0     1      0         0
+0   1   1     1      1         1
+1   0   0     1      0         0
+1   0   1     1      0         0
+1   1   0     1      0         0
+1   1   1     1      1         1
+Nevar izvēst, jo nav vienmēr patiess
+
+2) Izmantojot klasiskās predikātu loģikas pilnības teorēmu, noskaidrojiet, kuras no šīm
+formulām ir izvedamas no [L1-L15, MP, Gen]:
+
+a) (∀x p(x)→∀x q(x))→(∀x p(x)→∀x r(x));
+D = {a}
+p(x) = {a}
+q(x) = {a}
+r(x) = {}
+(1→1)→(1→0)
+    1→0
+     0
+Nevar izvēst, jo nav vienmēr patiess
+
+b) ∀x(p(x)→q(x))→(∀x p(x)→∀x q(x))
+Ja formula ir aplama tad,
+1) ∀x(p(x)→q(x)) ir patiesa
+2) ∀x(p(x))→∀x(q(x)) ir aplama
+3) ∀x(p(x)) ir patiesa
+4) ∀x(q(x)) ir aplama
+Tātād kādam objektam q(x) ir aplama (4), bet tā ka visiem objektiem p(x) ir patiesa (3) rodas pretruna,
+    jo ∀x(p(x)→q(x)) (1) nebūs patiess.
+Tātād formula nav izvedama.
+
+-------------------------------------------------------------------------------
+15.md
+
+1) Izmantojiet tablo algoritmu (ne savādāk!), lai noskaidrotu, vai klasiskajā loģikā:
+
+a) no hipotēzes P v R → Q v R var izvest formulu P → Q;
+1. solis: 
+(P v R → Q v R) ∧ ¬(P → Q)
+2. solis:
+(¬(P v R) v (Q v R)) ∧ ¬(¬P v Q)
+((¬P ∧ ¬R) v (Q v R)) ∧ (¬¬P ∧ ¬Q)
+((¬P ∧ ¬R) v Q v R) ∧ P ∧ ¬Q
+3. solis:
+((¬P ∧ ¬R) v Q v R) ∧ P ∧ ¬Q
+            |
+     (¬P ∧ ¬R) v Q v R
+            |
+          P ∧ ¬Q
+        /        \
+    ¬P ∧ ¬R     Q v R
+       |          |
+       P          P
+       |          |
+      ¬Q         ¬Q
+       |        /   \
+      ¬P       Q     R
+       |
+      ¬R       2     3
+
+       1
+
+1. zarā ir pretrunā P un ¬P, tātad zars ir slēgts
+2. zarā ir pretrunā Q un ¬Q, tātad zars ir slēgts
+3. zarā nav pretrunas, tātad zars ir atvērts
+
+Tā kā ir vismaz viens atvērts zars, tad no hipotēzes P v R → Q v R nevar izvest formulu P → Q.
+
+b) no hipotēzēm A→C; B→C var izvest formulu AvB→C. Aksiomu L8, DT1 un T231
+lieciet mierā!
+1. solis:
+(A→C) ∧ (B→C) ∧ ¬(AvB→C)
+2. solis:
+(¬AvC) ∧ (¬BvC) ∧ ¬(¬(AvB) v C)
+(¬AvC) ∧ (¬BvC) ∧ (¬¬(AvB) ∧ ¬C)
+(¬AvC) ∧ (¬BvC) ∧ (AvB) ∧ ¬C
+3. solis:
+           (¬AvC) ∧ (¬BvC) ∧ (AvB) ∧ ¬C
+                       |
+                     ¬AvC
+                       |
+                (¬BvC) ∧ (AvB) ∧ ¬C
+                /                  \
+              ¬A                    C
+               |                    |
+             ¬BvC                 ¬BvC
+               |                    |
+         (AvB) ∧ ¬C           (AvB) ∧ ¬C
+          /       \             /       \
+         ¬B        C          ¬B         C
+          |        |           |         |
+         AvB      AvB         AvB       AvB
+          |        |           |         |
+         ¬C       ¬C          ¬C        ¬C
+         / \      / \         / \       / \
+        A   B    A   B       A   B     A   B
+
+        1   2    3   4       5   6     7   8
+
+1. zarā pretruna A un ¬A
+2. zarā pretruna B un ¬B
+3. zarā pretruna A un ¬A
+4. zarā pretruna B un ¬B
+5. zarā pretruna C un ¬C
+6. zarā pretruna C un ¬C
+7. zarā pretruna C un ¬C
+8. zarā pretruna C un ¬C
+
+Tā kā visi zari ir slēgti, tad no hipotēzēm A→C; B→C var izvest formulu AvB→C.
+
