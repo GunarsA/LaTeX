@@ -1,3 +1,53 @@
+7.md
+
+i-iespēja
+
+1) Uzrakstiet vismaz 20 rindiņas garu eseju par aksiomu L11, par to, kas ir konstruktīvā
+loģika, kā tajā traktē disjunkciju un eksistences kvantoru.
+
+L11 ir "Law of excluded middle", tas ir, tā pieņem, ka katram izteikumam vai nu ir patiess, vai nu ir nepatiess.
+Šāds likums atļauj veikt pierādijumus no pretēja. Piemēram, ja ir uzdevums ar eksistnes kvantoru, 
+konstruktīvajā loģikā vajadzētu atrast konkrētu piemēru ar kādu gadijuma, kad nepieciešamais "eksistē". 
+Bet nekonstruktīvajā loģikā pietiek ar to, ka var pierādit, kav nav tā ka "neeksistē". Tas ir, var parveidot
+izteiksi par universālkvantoru un pieradīt, ka tas nav patiess. Šī iemesla dēļ, nekonstruktīvajā loģikā ir
+vieglāk izviedot pierādijumus. Bet tiek zaudēta informācija, jo ja gribētu iegūt konkrētu piemēru, tad
+konstruktīvaja loģika tas ir jau ir gatavs kā "by-product", bet nekonstruktīvajā loģikā tas ir papildus vēl jameklē.
+Konstruktīvaja loģika disjunkciju definē kā abu gadījumu apvienojumu. Tas ir ka ja ir ir AvB -> C, tad ir jāpierāda
+ka ir A -> C un B -> C un tad šos gadijumus var apvienot.
+Eksistences kvantoru konstruktīvajā loģikā var interpretēt kā "eksistē tāds x, ka p(x)".
+
+2) Palasiet sadaļas 1.3 beigas un uzrakstiet vismaz 20 rindiņas garu eseju par teoriju
+bezpretrunību un pilnību (consistency and completeness).
+
+Atsaucoties uz grāmatā teikto teorija ir bezpretrunīga, ja iekš tās nav iespējams
+"legāli" izvest pretrunu. Teorija ir pilnīga, ja priekš katra izteikuma ir
+iespējams determinēt vai tas ir patiess vai nē. Tas nozimē, ka teorīja nav
+neatrisināmas problēmas, jo par visu ir iespējams pateikt vai tas ir patiess vai nē.
+Nepilnā teorīja var eksistēt problēmas, kurām nav atrisinājuma. Interesanti, ja teorija
+nekonsistēna, tā ir pilnīga, jo balstoties uz L10 (¬B→(B→A)), ja ir pretrunā, tad no 
+tās ir iespējams izvest jebkuru izteikumu. Ja teorija būtu gan pilnīga, gan bezpretrunīga,
+tad tā būtu perfekta. Bet Gödela nepilnības teorēma saka, ka tas nav iespējams. Tas ir, 
+ja valoda ir bezpretrunīga tā nav pilnīga un otrādi. Tātād diemžēl perfekta teorija neeksistē.
+
+
+3)
+[L1, L2, MP]: A → (A → B)├ A → B
+(1) A → (A → B)                                     - pieņemam
+(2) (A → (A → B)) → (A → (A → (A → B)))             - L1
+(3) A → (A → (A → B))                               - MP no (2) un (1)
+(4) (A → ((D → A) → A)) → ((A → (D → A)) → (A → A)) - L2
+(5) A → ((D → A) → A)                               - L1
+(6) (A → (D → A)) → (A → A)                         - MP no (5) un (4)
+(7) A → (D → A)                                     - L1
+(8) A → A                                           - MP no (7) un (6)
+(9) (A → (A → (A → B))) → ((A → A) → (A → (A → B))) - L2
+(10) (A → A) → (A → (A → B))                        - MP no (9) un (3)
+(11) A → (A → B)                                    - MP no (10) un (8)
+(12) (A → (A → B)) → ((A → A) → (A → B))            - L2
+(13) (A → A) → (A → B)                              - MP no (12) un (11)
+(14) A → B                                          - MP no (13) un (8)
+
+-------------------------------------------------------------------------------
 8.md
 
 a.
@@ -6,38 +56,51 @@ a.
 
 A∨(B∨C)→(A∨B)∨C
 1) A∨( B∨C)                     - pieņemam
-Ar T2.3.1 sadalām Av(BvC) zaros
-A                    BvC
-AvB                  Sadalām BvC zaros
-(AvB)vC              B             C
-                     AvB           (AvB)vC
-                    (AvB)vC
-2) (A∨B)∨C                      - Visos zaros esam ieguvuši to pāsu izteiksmi T2.3.1
-3) A∨(B∨C)→(A∨B)∨C              - DT1
+Ar T2.3.1 sadalām Av(BvC) zaros (D-elimination)
+2) A                  2') BvC
+3) AvB - T2.3.1       Sadalām BvC zaros (D-elimination)
+4) (AvB)vC - T2.3.1   3') B             3'') C
+                      4') AvB - T2.3.1  4'') (AvB)vC - T2.3.1
+                      5') (AvB)vC - T2.3.1
+5) (A∨B)∨C                      - Visos zaros esam ieguvuši to pāsu izteiksmi T2.3.1
+6) A∨(B∨C)→(A∨B)∨C              - DT1
 
 (A∨B)∨C->A∨(B∨C)
 1) (A∨B)∨C                   - pieņemam
-Ar T2.3.1 sadalām (AvB)vC zaros
-A∨B                     C
-Sadalām AvB zaros       BvC
-A           B           Av(BvC)
-Av(BvC)     BvC           
-            A(BvC)
+Ar T2.3.1 sadalām Av(BvC) zaros (D-elimination)
+1) A                  1') BvC
+2) AvB - T2.3.1       Sadalām BvC zaros (D-elimination)
+3) (AvB)vC - T2.3.1   2') B             2'') C
+                      3') AvB - T2.3.1  3'') (AvB)vC - T2.3.1
+                      4') (AvB)vC - T2.3.1
 2) A∨(B∨C)                  - Visos zaros esam ieguvuši to pāsu izteiksmi T2.3.1
 3) (A∨B)∨C->A∨(B∨C)        - DT1
 
 b.
 
-[L1, L2, L6-L8, MP]: ( A → B)→ (A∨C → B∨C)
+[L1, L2, L6-L8, MP]: ( A → B) → (A∨C → B∨C)
 1) A→B                     - pieņemam
 2) AvB                     - pieņemam
-Ar T2.3.1 sadalām AvC zaros
+Ar T2.3.1 sadalām AvC zaros (D-elimination)
 3)A                        3')C
 4)B                        4')BvC
 5)BvC
 Visos zaros esam ieguvuši to pašu izteiksmi varam apvienot ar T2.3.1
 6) A∨C→B∨C                - DT1
 7) (A→B)→(A∨C→B∨C)        - DT1
+
+i-iespēja
+
+2) Lasiet sadaļas 2.4 - 2.6. Uzrakstiet eseju par to, kas Jums tur likās visinteresantākais.
+Interesanti likās, ka ir iespējamas dažādas kombinācijas ar aksiomām un / vai formulām ar kurām
+definēt teorīju. 
+
+3) Lasiet sadaļu 2.7. Uzrakstiet eseju par to, kas Jums tur likās visinteresantākais.
+Man visinteresantāk līkas, ka konstruktīvaja loģika var principā izdarīt visu, ko var
+klasiskajā / nekonstruktīvajā loģikā, tikai vajag pielikt priekšā dubulto negāciju. Tas 
+liek drusku domāt, ka varbūt pietiek vienmēr izmantot konstruktīvo loģiku, jo kā jau
+iepriekš minēts tās pierādijumi dod vairāk informacijas. Bet gan jau tā netiek darīts 
+galu galā tas nav tā vērts.
 
 -------------------------------------------------------------------------------
 9.md
@@ -56,7 +119,7 @@ Sadalam gadījumos A un B
 ¬A∧¬B->¬(A∨B)
 1) ¬A∧¬B                    - pieņemam priekš DT1
 2) A∨B                      - pieņemam priekš T2.4.1
-Sazarojam A∨B
+Sazarojam A∨B ar T2.3.1
 3) A                                                3')B
 4) ¬A - T2.2.1 no 1)                                4')¬B - T2.2.1 no 1)
 5) Iegūta pretruna, tātad ¬(A∨B) no 2) un T2.4.1    5') Iegūta pretruna, tātad ¬(A∨B) no 2) un T2.4.1
@@ -73,12 +136,12 @@ A├ B → B∨¬A
 A├ B∨¬A → B
 1) A                      - dotā hipotēze
 2) B∨¬A                  - pieņemam priekš DT1
-Sadalam zaros ar T2.4.1
+Sadalam zaros ar T2.3.1
 3) B                      3') ¬A
                           4') ¬A→(A→B) - L10
                           5') A→B - MP no 3') un 4')
                           6') B - MP no 1) un 5')
-7) B                      - T2.4.1 no 3) un 6'), jo abos zaros iegūts B
+7) B                      - T2.3.1 no 3) un 6'), jo abos zaros iegūts B
 8) B∨¬A → B               - DT1
 
 [L1-L10, MP]:B∨( A∧¬ A) ↔ B
@@ -135,10 +198,10 @@ Sadalam zaros ar T2.3.1
 [L1-L10, MP]:¬¬(¬¬A→A)
 (1) ¬(¬¬A→A)               - pieņemam priekš T2.4.1
 (2) A→(¬¬A→A)              - L1
-(3) ¬(¬¬A→A)→¬A            - Kontrapozīcija no (2)
+(3) ¬(¬¬A→A)→¬A            - T2.4.2 Kontrapozīcija no (2)
 (4) ¬A                     - MP no (1) un (3)
 (5) ¬A→(¬¬A→A)             - L10
-(6) ¬(¬¬A→A)→¬¬A           - Kontrapozīcija no (5)
+(6) ¬(¬¬A→A)→¬¬A           - T2.4.2 Kontrapozīcija no (5)
 (7) ¬¬A                    - MP no (1) un (6)
 Iegūta pretruna (4) un (7), tātad balstoties uz T2.4.1 un (1) ¬¬(¬¬A→A)
 
@@ -169,13 +232,13 @@ A    B    A → B    A ∧ B    A ∨ B    ¬B
 2    2      2        2        2       1
 
 ¬¬B    ¬¬B → B
-1         0
+1        !0
 1         2
 2         2
-1         0
+1        !0
 1         2
 2         2
-1         0
+1        !0
 1         2
 2         2
 nedabiski, ka nav vienmēr pilnībā patiess
@@ -234,12 +297,11 @@ b)
 
 2)
 [L1-L11, MP]: ¬((A→B)→(CvD)) ↔ (¬AvB)∧¬C∧¬D
-¬((A→B)→(CvD))
-(1) A→B ↔ ¬AvB - T2.6.4
-(2) ¬((¬AvB)→(CvD)) ↔ ¬(¬(¬AvB)v(CvD)) - T2.4.9
-(3) ¬(¬(¬AvB)v(CvD)) ↔ ¬¬(¬(AvB)v¬(CvD)) - T2.4.9
-(4) ¬¬(¬(AvB)v¬(CvD)) ↔ ¬¬(¬(AvB)v¬Cv¬D) - T2.4.9
-(5) ¬¬(¬(AvB)v¬Cv¬D) ↔ ¬(AvB)v¬Cv¬D - T2.6.1
+(1) ¬((A→B)→(CvD)) ↔ ¬((¬AvB)→(CvD)) - T2.6.4 (I-elimination)
+(2) ¬((¬AvB)→(CvD)) ↔ ¬(¬(¬AvB)v(CvD)) - T2.6.4 (I-elimination)
+(3) ¬(¬(¬AvB)v(CvD)) ↔ ¬¬((¬AvB)v¬(CvD)) - T2.4.9 (de Morgan Law)
+(4) ¬¬((¬AvB)v¬(CvD)) ↔ ¬¬((¬AvB)v¬Cv¬D) - T2.4.9 (de Morgan Law)
+(5) ¬¬((¬AvB)v¬Cv¬D) ↔ (¬AvB)v¬Cv¬D - T2.4.9 (de Morgan Law)
 Esam ar ekvivalentiem parveidojumiem izveduši vienādību
 
 -------------------------------------------------------------------------------
@@ -299,6 +361,23 @@ Formula neizpildās:
 D = {a, b}
 r(x) = {a}
 s(x) = {b}
+
+i-iespēja
+
+1) Pierādiet, ka šī formula ir izpildāma, bet NAV loģiski vispārderīga:
+∀x ¬p(x, x) ∧ ∀x∀y∀z(p(x, y) ∧ p(y, z) → p(x, z)) → ∀x∀y(x=y v p(x, y) v p(y, x))
+Formula izpildās:
+D = {a}
+p(x, y) = {}
+1 ∧ (0 ∧ 0 → 1) → (1 v 0 v 0)
+1 ∧ 1 → 1
+1 → 1
+Formula neizpildās:
+D = {a, b}
+p(x, y) = {}
+1 ∧ (0 ∧ 0 → 1) → (0 v 0 v 0)
+1 ∧ 1 → 0
+1 → 0
 
 -------------------------------------------------------------------------------
 14.md
@@ -420,7 +499,7 @@ lieciet mierā!
 1. zarā pretruna A un ¬A
 2. zarā pretruna B un ¬B
 3. zarā pretruna A un ¬A
-4. zarā pretruna B un ¬B
+4. zarā pretruna C un ¬C
 5. zarā pretruna C un ¬C
 6. zarā pretruna C un ¬C
 7. zarā pretruna C un ¬C
@@ -428,3 +507,23 @@ lieciet mierā!
 
 Tā kā visi zari ir slēgti, tad no hipotēzēm A→C; B→C var izvest formulu AvB→C.
 
+i-iespēja
+
+3) Uzrakstiet vismaz 20 rindiņas garu sakarīgu eseju par to, cik sarežģīti ir noskaidrot, vai
+dotā formula ir izvedama klasiskajā izteikumu loģikā.
+
+Ejot cauri visam kursa materiālam parādijās dažādas metodes, kā noskaidrot, vai
+dotā formula ir izvedama klasiskajā izteikumu loģikā un katra no tām padarīja šos
+procesu vieglāku. Piemēram dedukcijas teorēma ļoti saisināja procesu. Daudzus 
+pirmā kontroldarba uzdevumus tagad var izdarīt principa uzreiz. Pēc manām domām,
+visvairāk palīdz pilnības teorēma, jo tā kā uzdevumos ko mēs šobrid veicām parasti
+ir tikai 3 mainīgie, tad tabula būs salidzinoši maza 2^3 = 8 rindiņu. Tāpēc pilnā
+parlase ir pilnīgi iespējama. Protams, šī metode ļoti ātri (eksponenciāli) paliek lēna,
+kad palielinas mainīgo skaits. Papildus es vēl neizprotu, kā tā strādas ar kvantoriem.
+Tas ir vēl neizstudēju kā tā strādas, lai pierāditu ka izteiksme būs patiesa visās
+interpretācijās. Tablo algoritms ir sarežģītāks, pēc manām domām, par pilnības teorēmu,
+un "uz aci" liekas, ka tā laika kompleksitāte arī ir eksponenciāla, jo tas dalās zaros
+pie katras konjukcijas. Paliek klasiskā metode ar pārveidojumiem, kas laikam joprojām ir 
+vislābakais variants, ja uzdevums ir ļoti sarežģīts un to risina cilvēks. Jo ir sakarības,
+kurās joprojām datoram nevar iemācit. Kaut gan varbūt jau tagad dziļie neironu tīkli ir
+spējīgi to izdarīt, jo tie jau spēj izdarīt diezgan sarežģitus sporta programēšanas uzdevumus.
